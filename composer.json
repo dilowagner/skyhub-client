@@ -1,0 +1,40 @@
+{
+    "name": "dilowagner/skyhub-client",
+    "description": "Client para consumo da API da SkyHub",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Diego Wagner",
+            "email": "diegowagner4@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "keywords": [
+        "SkyHub",
+        "B2W",
+        "API",
+        "Integracao",
+        "Casas Bahia",
+        "Ricardo Eletro",
+        "Mercado Livre",
+        "Americanas"
+    ],
+    "license": [
+        "MIT"
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-openssl": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SkyHub\\": ["src", "test"]
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit"
+    }
+}
