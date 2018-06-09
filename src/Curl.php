@@ -154,7 +154,7 @@ class Curl
     /**
      * @destruct method
      */
-    public function __destruct() : void
+    public function __destruct()
     {
         curl_close($this->resource);
     }
