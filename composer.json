@@ -24,7 +24,6 @@
     ],
     "require": {
         "php": "^7.1",
-        "ext-openssl": "*",
         "php-di/php-di": "6.0.2"
     },
     "require-dev": {
