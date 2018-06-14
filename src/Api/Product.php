@@ -71,66 +71,63 @@ class Product
      * POST /products
      * 
      * Exemplo de estrutura de dados que deverá ser enviada
-     * array (
-     *   'product' => 
-     *        array (
-     *           'sku' => 'foo',
-     *           'name' => 'foo',
-     *           'description' => 'foo',
-     *           'status' => 'enabled',
-     *           'qty' => 0,
-     *           'price' => 0,
-     *           'promotional_price' => 0,
-     *           'cost' => 0,
-     *           'weight' => 0,
-     *           'height' => 0,
-     *           'width' => 0,
-     *           'length' => 0,
-     *           'brand' => 'foo',
-     *           'ean' => 'foo',
-     *           'nbm' => 'foo',
-     *           'categories' => array (
-     *              0 => array (
-     *                 'code' => 'foo',
-     *                 'name' => 'foo',
+     *   array (
+     *      'sku' => 'foo',
+     *      'name' => 'foo',
+     *      'description' => 'foo',
+     *      'status' => 'enabled',
+     *      'qty' => 0,
+     *      'price' => 0,
+     *      'promotional_price' => 0,
+     *      'cost' => 0,
+     *      'weight' => 0,
+     *      'height' => 0,
+     *      'width' => 0,
+     *      'length' => 0,
+     *      'brand' => 'foo',
+     *      'ean' => 'foo',
+     *      'nbm' => 'foo',
+     *      'categories' => array (
+     *           0 => array (
+     *              'code' => 'foo',
+     *              'name' => 'foo',
+     *           ),
+     *       ),
+     *       'images' => array (
+     *           0 => 'foo',
+     *           1 => 'foo',
+     *           2 => 'foo',
+     *       ),
+     *       'specifications' => array (
+     *           0 => array (
+     *              'key' => 'foo',
+     *              'value' => 'foo',
+     *           ),
+     *       ),
+     *       'variations' => array (
+     *           0 => array (
+     *              'sku' => 'foo',
+     *              'qty' => 0,
+     *              'ean' => 'foo',
+     *              'images' => array (
+     *                  0 => 'foo',
+     *                  1 => 'foo',
+     *                  2 => 'foo',
+     *              ),
+     *              'specifications' => array (
+     *                  0 => array (
+     *                     'key' => 'foo',
+     *                     'value' => 'foo',
+     *                  ),
      *              ),
      *           ),
-     *           'images' => array (
-     *              0 => 'foo',
-     *              1 => 'foo',
-     *              2 => 'foo',
-     *           ),
-     *           'specifications' => array (
-     *              0 => array (
-     *                 'key' => 'foo',
-     *                 'value' => 'foo',
-     *              ),
-     *           ),
-     *           'variations' => array (
-     *              0 => array (
-     *                 'sku' => 'foo',
-     *                 'qty' => 0,
-     *                 'ean' => 'foo',
-     *                 'images' => array (
-     *                     0 => 'foo',
-     *                     1 => 'foo',
-     *                     2 => 'foo',
-     *                 ),
-     *                 'specifications' => array (
-     *                     0 => array (
-     *                        'key' => 'foo',
-     *                        'value' => 'foo',
-     *                     ),
-     *                 ),
-     *              ),
-     *           ),
-     *           'variation_attributes' => array (
-     *              0 => 'foo',
-     *              1 => 'foo',
-     *              2 => 'foo',
-     *           ),
-     *      ),
-     * );
+     *       ),
+     *       'variation_attributes' => array (
+     *           0 => 'foo',
+     *           1 => 'foo',
+     *           2 => 'foo',
+     *       ),
+     *    );
      */
     public function create($dados) : Response
     {
@@ -167,12 +164,9 @@ class Product
      * PUT /products/$sku
      * 
      * Exemplo de estrutura de dados que deverá ser enviada
-     * array (
-     *   'product' => 
-     *        array (
-     *           'qty' => $quantity (integer)
-     *      ),
-     * );
+     *  array (
+     *    'qty' => $quantity (integer)
+     *  );
      */
     public function updateStock($sku, $quantity) : Response
     {
@@ -192,17 +186,13 @@ class Product
      * @return Response
      * 
      * PUT /products/$sku/variation
-     * 
-     * array (
-     *   'variation' => 
-     *        array (
-     *           'sku' => 'code',
-     *           'qty' => 10,
-     *           'images' => array(
-     *              0 => 'http://mla-s2-p.mlstatic.com/968521-MLA20805195516_072016-O.jpg'
-     *           )
-     *      ),
-     * );
+     *  array (
+     *     'sku' => 'code',
+     *     'qty' => 10,
+     *     'images' => array(
+     *        0 => 'http://mla-s2-p.mlstatic.com/968521-MLA20805195516_072016-O.jpg'
+     *     )
+     *  );
      */
     public function variation($sku, $dados) : Response
     {
@@ -222,9 +212,7 @@ class Product
      * 
      * Exemplo de estrutura de dados que deverá ser enviada
      * array (
-     *   'product' => array (
-     *      'status' => 'enabled'
-     *   ),
+     *   'status' => 'enabled'
      * );
      */
     public function enable($sku) : Response
@@ -241,9 +229,7 @@ class Product
      * 
      * Exemplo de estrutura de dados que deverá ser enviada
      * array (
-     *   'product' => array (
-     *      'status' => 'disabled'
-     *   ),
+     *   'status' => 'disabled'
      * );
      */
     public function disable($sku) : Response
