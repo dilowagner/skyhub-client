@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace SkyHub\Api;
+namespace DW\SkyHub\Api;
 
-use SkyHub\ClientInterface;
-use SkyHub\Route;
-use SkyHub\Response;
+use DW\SkyHub\ClientInterface;
+use DW\SkyHub\Route;
+use DW\SkyHub\Response;
 
 class Product
 {

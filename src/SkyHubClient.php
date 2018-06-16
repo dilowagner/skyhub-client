@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SkyHub;
+namespace DW\SkyHub;
 
 use DI\ContainerBuilder;
 use DI\NotFoundException;
@@ -16,7 +16,7 @@ class SkyHubClient implements ClientInterface
     /**
      * @var string
      */
-    const NAMESPACE_API = 'SkyHub\\Api\\';
+    const NAMESPACE_API = 'DW\\SkyHub\\Api\\';
 
     /**
      * @var string

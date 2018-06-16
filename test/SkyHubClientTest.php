@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace ShyHub;
+namespace DW\ShyHub;
 
 class SkyHubClientTest extends \PHPUnit_Framework_TestCase
 {
