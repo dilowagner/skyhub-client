@@ -1,5 +1,5 @@
 {
-    "name": "dilowagner/skyhub-client",
+    "name": "dw/skyhub-client",
     "description": "Client para consumo da API da SkyHub",
     "type": "library",
     "authors": [
