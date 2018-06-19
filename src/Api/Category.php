@@ -26,7 +26,7 @@ class Category extends Api
 
     /**
      * Cadastra categorias
-     * @param array $dados
+     * @param array $data
      * @return Response
      * 
      * POST /categories
@@ -40,12 +40,12 @@ class Category extends Api
      *      ),
      * );
      */
-    public function create(array $dados) : Response
+    public function create(array $data) : Response
     {
         return $this->client->post(
             new Route([self::CATEGORY_ROUTE]), [
             'category' => [
-                $dados
+                $data
             ]
         ]);
     }
@@ -53,7 +53,7 @@ class Category extends Api
     /**
      * Atualiza os dados da categoria
      * @param string $code
-     * @param array $dados
+     * @param array $data
      * @return Response
      * 
      * PUT /categories/$code
@@ -66,12 +66,12 @@ class Category extends Api
      *      ),
      * );
      */
-    public function update(string $code, array $dados) : Response
+    public function update(string $code, array $data) : Response
     {
         return $this->client->put(
             new Route([self::CATEGORY_ROUTE, $code]), [
             'category' => [
-                $dados
+                $data
             ] 
         ]);
     }
