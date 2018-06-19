@@ -31,7 +31,7 @@ class Product extends Api
      * 
      * GET /products/$sku
      */
-    public function view($sku) : Response
+    public function view(string $sku) : Response
     {
         return $this->client->get(new Route([self::PRODUCT_ROUTE, $sku]));
     }
@@ -49,7 +49,7 @@ class Product extends Api
 
     /**
      * Cadastra os dados do produto
-     * @param array $dados
+     * @param array $data
      * @return Response
      * 
      * POST /products
@@ -113,11 +113,11 @@ class Product extends Api
      *       ),
      *    );
      */
-    public function create($dados) : Response
+    public function create(array $data) : Response
     {
         return $this->client->post(
             new Route([self::PRODUCT_ROUTE]), [
-              'product' => $dados
+              'product' => $data
             ]
         );
     }
@@ -125,16 +125,16 @@ class Product extends Api
     /**
      * Atualiza os dados do produto
      * @param string $sku
-     * @param array $dados
+     * @param array $data
      * @return Response
      * 
      * PUT /products/$sku
      */
-    public function update($sku, $dados) : Response
+    public function update(string $sku, array $data) : Response
     {
         return $this->client->put(
             new Route([self::PRODUCT_ROUTE, $sku]), [
-              'product' => $dados
+              'product' => $data
             ]
         );
     }
@@ -152,7 +152,7 @@ class Product extends Api
      *    'qty' => $quantity (integer)
      *  );
      */
-    public function updateStock($sku, $quantity) : Response
+    public function updateStock(string $sku, int $quantity) : Response
     {
         return $this->client->put(
             new Route([self::PRODUCT_ROUTE, $sku]), [
@@ -166,7 +166,7 @@ class Product extends Api
     /**
      * Adiciona variacoes no Produto
      * @param string $sku
-     * @param array $dados
+     * @param array $data
      * @return Response
      * 
      * PUT /products/$sku/variation
@@ -178,11 +178,11 @@ class Product extends Api
      *     )
      *  );
      */
-    public function variation($sku, $dados) : Response
+    public function variation(string $sku, array $data) : Response
     {
         return $this->client->post(
             new Route([self::PRODUCT_ROUTE, $sku, 'variations']), [
-                'variation' => $dados       
+                'variation' => $data       
             ]
         );
     }
@@ -199,7 +199,7 @@ class Product extends Api
      *   'status' => 'enabled'
      * );
      */
-    public function enable($sku) : Response
+    public function enable(string $sku) : Response
     {
         return $this->updateStatus($sku, 'enabled');
     }
@@ -216,7 +216,7 @@ class Product extends Api
      *   'status' => 'disabled'
      * );
      */
-    public function disable($sku) : Response
+    public function disable(string $sku) : Response
     {
         return $this->updateStatus($sku, 'disabled');
     }
@@ -229,7 +229,7 @@ class Product extends Api
      * 
      * PUT /products/$sku
      */
-    private function updateStatus($sku, $status) : Response
+    private function updateStatus(string $sku, string $status) : Response
     {
         return $this->client->put(new Route([self::PRODUCT_ROUTE, $sku]), [
             'product' => [
@@ -245,7 +245,7 @@ class Product extends Api
      * 
      * DELETE /products/$sku
      */
-    public function remove($sku) : Response
+    public function remove(string $sku) : Response
     {
         return $this->client->delete(new Route([self::PRODUCT_ROUTE, $sku]));
     }
