@@ -3,31 +3,15 @@ declare(strict_types=1);
 
 namespace DW\SkyHub\Api;
 
-use DW\SkyHub\ClientInterface;
 use DW\SkyHub\Route;
 use DW\SkyHub\Response;
 
-class Product
+class Product extends Api
 {
     /**
      * @var string
      */
     const PRODUCT_ROUTE = '/product';
-
-    /**
-     * @var ClientInterface
-     */
-    private $client;
-
-    /**
-     * Service constructor.
-     * @param ClientInterface $client
-     */
-    public function __construct(ClientInterface $client)
-    {
-        $this->client = $client;
-    }
-
 
     /**
      * Lista os produtos cadastrados na plataforma
