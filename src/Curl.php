@@ -116,7 +116,7 @@ class Curl
         $data = curl_exec($this->resource);
         $info = curl_getinfo($this->resource);
 
-        return array_merge(array('body' => $data), $info);
+        return array_merge(['body' => $data], $info);
     }
 
     /**
