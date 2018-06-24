@@ -57,20 +57,20 @@ class Response
     }
     
     /**
-     * @return string
+     * @return array
      */
-    public function getContent() : string
+    public function getContent() : array
     {
         return $this->content;
     }
     
     /**
-     * @param string $content
+     * @param string $data
      * @return Response
      */
-    public function setContent(string $content) : Response
+    public function setContent(string $data) : Response
     {
-        $this->content = json_decode($content, true);
+        $this->content = json_decode($data, true);
         return $this;
     }
 }
