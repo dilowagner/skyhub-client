@@ -11,7 +11,7 @@ class Category extends Api
     /**
      * @var string
      */
-    const CATEGORY_ROUTE = '/categories';
+    const CATEGORY_ROUTE = 'categories';
 
     /**
      * Listar categorias
