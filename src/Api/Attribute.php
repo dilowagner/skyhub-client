@@ -11,7 +11,7 @@ class Attribute extends Api
     /**
      * @var string
      */
-    const ATTRIBUTE_ROUTE = '/attributes';
+    const ATTRIBUTE_ROUTE = 'attributes';
 
     /**
      * Cadastra Atributos
