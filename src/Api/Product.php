@@ -11,7 +11,7 @@ class Product extends Api
     /**
      * @var string
      */
-    const PRODUCT_ROUTE = '/product';
+    const PRODUCT_ROUTE = 'product';
 
     /**
      * Lista os produtos cadastrados na plataforma
