@@ -63,12 +63,12 @@ class SkyHubClient implements ClientInterface
      * Requisição POST
      * @method POST
      * @param RouteInterface $route
-     * @param array $params
+     * @param array $data
      * @return Response
      */
     public function post(RouteInterface $route, array $data) : Response
     {
-        return $this->buildRequest($route, Http::POST, array(), $data)
+        return $this->buildRequest($route, Http::POST, [], $data)
                     ->send();
     }
 
@@ -76,12 +76,12 @@ class SkyHubClient implements ClientInterface
      * Requisição PUT
      * @method PUT
      * @param RouteInterface $route
-     * @param array $params
+     * @param array $data
      * @return Response
      */
     public function put(RouteInterface $route, array $data) : Response
     {
-        return $this->buildRequest($route, Http::PUT, array(), $data)
+        return $this->buildRequest($route, Http::PUT, [], $data)
                     ->send();
     }
 
