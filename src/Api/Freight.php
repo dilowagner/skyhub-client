@@ -11,7 +11,7 @@ class Freight extends Api
     /**
      * @var string
      */
-    const FREIGHT_ROUTE = '/freights';
+    const FREIGHT_ROUTE = 'freights';
 
     /**
      * Recebe histórico de frete
