@@ -11,7 +11,7 @@ class Question extends Api
     /**
      * @var string
      */
-    const QUESTION_ROUTE = '/questions';
+    const QUESTION_ROUTE = 'questions';
 
     /**
      * Listar as Perguntas
