@@ -11,7 +11,7 @@ class Queue extends Api
     /**
      * @var string
      */
-    const QUEUE_ROUTE = '/queues';
+    const QUEUE_ROUTE = 'queues';
 
     /**
      * Listar os pedidos da Fila
