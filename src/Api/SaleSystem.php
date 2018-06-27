@@ -6,7 +6,7 @@ namespace DW\SkyHub\Api;
 use DW\SkyHub\Route;
 use DW\SkyHub\Response;
 
-class System extends Api
+class SaleSystem extends Api
 {
     /**
      * @var string
