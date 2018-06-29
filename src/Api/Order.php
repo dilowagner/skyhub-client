@@ -30,4 +30,16 @@ class Order extends Api
     {
         return $this->client->get(new Route([self::ORDER_ROUTE]), $filter);
     }
+
+    /**
+     * Recuperar um pedido a partir do código especificado
+     * @param string $code
+     * @return Response
+     * 
+     * GET /orders/:code
+     */
+    public function view(string $code) : Response
+    {
+        return $this->client->get(new Route([self::ORDER_ROUTE, $code]));
+    }
 }
