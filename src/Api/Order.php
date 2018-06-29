@@ -169,4 +169,20 @@ class Order extends Api
             ]
         );
     }
+
+    /**
+     * Atualizar pedido com os dados de aprovação 
+     * @param string $code
+     * @return Response
+     * 
+     * POST /orders/:code/approval
+     */
+    public function approval(string $code) : Response
+    {
+        return $this->client->post(
+            new Route([self::ORDER_ROUTE, $code, 'approval']), [
+              'status' => 'payment_received'
+            ]
+        );
+    }
 }
