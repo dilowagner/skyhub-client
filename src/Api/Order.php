@@ -172,6 +172,7 @@ class Order extends Api
 
     /**
      * Atualizar pedido com os dados de aprovação 
+     * 
      * @param string $code
      * @return Response
      * 
@@ -182,6 +183,25 @@ class Order extends Api
         return $this->client->post(
             new Route([self::ORDER_ROUTE, $code, 'approval']), [
               'status' => 'payment_received'
+            ]
+        );
+    }
+
+    /**
+     * Atualizar pedido com informações da nota fiscal 
+     * 
+     * @param string $code
+     * @param array $invoceInfo
+     * @return Response
+     * 
+     * POST /orders/:code/invoice
+     */
+    public function invoice(string $code, array $invoceInfo) : Response
+    {
+        return $this->client->post(
+            new Route([self::ORDER_ROUTE, $code, 'invoice']), [
+              'status'  => 'payment_received',
+              'invoice' => $invoceInfo
             ]
         );
     }
