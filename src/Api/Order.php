@@ -210,7 +210,7 @@ class Order extends Api
      * Cancelar um pedido
      * Atualiza um pedido com dados de cancelamento
      * 
-     * @param string $cancel
+     * @param string $code
      * @return Response
      * 
      * POST /orders/:code/cancel
@@ -220,6 +220,24 @@ class Order extends Api
         return $this->client->post(
             new Route([self::ORDER_ROUTE, $code, 'cancel']), [
               'status'  => 'order_canceled'
+            ]
+        );
+    }
+
+    /**
+     * Confirmar entrega
+     * Atualiza um pedido como entregue
+     * 
+     * @param string $code
+     * @return Response
+     * 
+     * POST /orders/:code/delivery
+     */
+    public function delivery(string $code) : Response
+    {
+        return $this->client->post(
+            new Route([self::ORDER_ROUTE, $code, 'delivery']), [
+              'status'  => 'complete'
             ]
         );
     }
