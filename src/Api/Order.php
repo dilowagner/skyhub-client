@@ -205,4 +205,22 @@ class Order extends Api
             ]
         );
     }
+
+    /**
+     * Cancelar um pedido
+     * Atualiza um pedido com dados de cancelamento
+     * 
+     * @param string $cancel
+     * @return Response
+     * 
+     * POST /orders/:code/cancel
+     */
+    public function cancel(string $code) : Response
+    {
+        return $this->client->post(
+            new Route([self::ORDER_ROUTE, $code, 'cancel']), [
+              'status'  => 'order_canceled'
+            ]
+        );
+    }
 }
