@@ -241,4 +241,29 @@ class Order extends Api
             ]
         );
     }
+
+    /**
+     * Confirma a Entrega do pedido
+     * 
+     * @param string $code
+     * @param array $info informacoes adicionais com relacao a entrega
+     * @return Response
+     * 
+     * POST /orders/:code/delivery
+     * 
+     * Exemplo de estrutura de dados que deverá ser enviada
+     * array (
+     *   'status' => 'complete'
+     * );
+     */
+    public function delivery(string $code, array $info = []) : Response
+    {
+        return $this->client->post(
+            new Route([self::ORDER_ROUTE, $code, 'delivery']), 
+            array_merge(
+                ['status' => 'complete'],
+                $info
+            )
+        );
+    }
 }
