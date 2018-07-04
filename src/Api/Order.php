@@ -225,24 +225,6 @@ class Order extends Api
     }
 
     /**
-     * Confirmar entrega
-     * Atualiza um pedido como entregue
-     * 
-     * @param string $code
-     * @return Response
-     * 
-     * POST /orders/:code/delivery
-     */
-    public function delivery(string $code) : Response
-    {
-        return $this->client->post(
-            new Route([self::ORDER_ROUTE, $code, 'delivery']), [
-              'status'  => 'complete'
-            ]
-        );
-    }
-
-    /**
      * Confirma a Entrega do pedido
      * 
      * @param string $code
