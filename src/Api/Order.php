@@ -248,4 +248,46 @@ class Order extends Api
             )
         );
     }
+
+    /**
+     * Enviar dados de entrega
+     * Atualizar um pedido com os dados de código de rastreio e método de envio da transportadora.
+     * Obs.: A B2W aceita no máximo 200 caracteres na URL de tracking.
+     * 
+     * @param string $code
+     * @param array $info
+     * @return Response
+     * 
+     * POST /orders/:code/shipments
+     * 
+     * Exemplo de estrutura de dados que deverá ser enviada
+     * array (
+     *   'status' => 'order_shipped',
+     *   'shipment' => array (
+     *     'code' => 'Submarino-1493069158776',
+     *     'items' => array (
+     *       0 => array (
+     *         'sku' => '1001',
+     *         'qty' => 1,
+     *       ),
+     *     ),
+     *     'track' => array (
+     *         'code' => 'BR1321830198302DR',
+     *         'carrier' => 'Correios',
+     *         'method' => 'SEDEX',
+     *         'url' => 'www.correios.com.br',
+     *     ),
+     *   ),
+     * )
+     */
+    public function shipments(string $code, array $info = []) : Response
+    {
+        return $this->client->post(
+            new Route([self::ORDER_ROUTE, $code, 'shipments']), 
+            array_merge(
+                ['status' => 'order_shipped'],
+                $info
+            )
+        );
+    }
 }
