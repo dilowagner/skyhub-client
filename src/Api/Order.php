@@ -290,4 +290,22 @@ class Order extends Api
             )
         );
     }
+
+    /**
+     * Obter etiqueta de frete
+     * 
+     * Obter a etiqueta de um pedido que teve o frete calculado via B2W Entregas.
+     * O parceiro pode obter a etiqueta em Json e PDF, sendo necessário somente alterar o formato no campo Accept do Header.
+     * 
+     * Em caso de dúvidas acesso nosso guia : https://skyhub.gelato.io/guides/servico-de-etiqueta-de-frete
+     *
+     * @param string $code
+     * @return Response
+     * 
+     * POST /orders/:code/shipment_labels
+     */
+    public function shipmentLabels(string $code) : Response
+    {
+        return $this->client->post(new Route([self::ORDER_ROUTE, $code, 'shipment_labels']), []);
+    }
 }
