@@ -302,10 +302,10 @@ class Order extends Api
      * @param string $code
      * @return Response
      * 
-     * POST /orders/:code/shipment_labels
+     * GET /orders/:code/shipment_labels
      */
     public function shipmentLabels(string $code) : Response
     {
-        return $this->client->post(new Route([self::ORDER_ROUTE, $code, 'shipment_labels']), []);
+        return $this->client->get(new Route([self::ORDER_ROUTE, $code, 'shipment_labels']));
     }
 }
