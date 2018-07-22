@@ -308,4 +308,28 @@ class Order extends Api
     {
         return $this->client->get(new Route([self::ORDER_ROUTE, $code, 'shipment_labels']));
     }
+
+    /**
+     * Exceção de Transporte
+     * 
+     * @param string $code
+     * @param array $data
+     * @return Response
+     * 
+     * POST /orders/:code/shipment_exception
+     * 
+     * Exemplo de estrutura de dados que deverá ser enviada
+     * array (
+     *    'occurrence_date' => '2012-10-06T04:13:00-03:00',
+     *    'observation' => 'Observação da Exceção de transporte'
+     * )
+     */
+    public function shipmentException(string $code, array $data) : Response
+    {
+        return $this->client->post(
+            new Route([self::ORDER_ROUTE, $code, 'shipment_exception']), [
+                'shipment_exception' => $data
+            ]
+        );
+    }
 }
