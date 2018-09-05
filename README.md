@@ -24,4 +24,8 @@ Client para consumo da API SkyHub
 - [X] Sincronizacao dos Erros
 - [X] Variacoes
 
+> ### Licença
+
+Esta biblioteca segue os termos de uso da [MIT](https://github.com/dilowagner/skyhub-client/blob/master/LICENSE)
+
 ## Em construcao - aguarde!
