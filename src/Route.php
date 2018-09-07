@@ -14,7 +14,7 @@ class Route implements RouteInterface
      * Route constructor.
      * @param array $values
      */
-    public function __construct($values = array())
+    public function __construct(array $values = array())
     {
         $this->values = $values;
     }
