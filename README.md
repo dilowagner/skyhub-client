@@ -42,7 +42,7 @@ Ou no composer.json
 
 ```json
 {
-    "dw/skyhub-client": "0.*"
+    "dw/skyhub-client": "1.*"
 }
 ```
 
