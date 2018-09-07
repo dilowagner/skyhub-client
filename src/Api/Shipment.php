@@ -29,17 +29,35 @@ class Shipment extends Api
      * 
      * Exemplo de estrutura de dados que deverá ser enviada
      *   array (
-     *     "265358194401",
-     *     "265358194401",
-     *     "265358194401"
+     *     0 => "265358194401",
+     *     1 => "265358194401",
+     *     2 => "265358194401"
      *   )
      */
-    public function groupPLP(array $codes) : Response
+    public function agroupPLP(array $codes) : Response
     {
         return $this->client->post(
             new Route([self::SHIPMENT_ROUTE, 'b2w']), [
               'order_remote_codes' => $codes
             ]
         );
+    }
+
+    /**
+     * Agrupar Pedidos em uma PLP
+     * 
+     * @param array $data
+     * @return Response
+     * 
+     * POST /shipments/b2w
+     * 
+     * Exemplo de estrutura de dados que deverá ser enviada
+     *   array (
+     *     "plp_id" => "123"
+     *   )
+     */
+    public function ungroupPLP(array $data) : Response
+    {
+        return $this->client->delete(new Route([self::SHIPMENT_ROUTE, 'b2w']), $data);
     }
 }

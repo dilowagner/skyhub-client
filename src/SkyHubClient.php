@@ -89,11 +89,12 @@ class SkyHubClient implements ClientInterface
      * Requisição DELETE
      * @method DELETE
      * @param RouteInterface $route
+     * @param array $data
      * @return Response
      */
-    public function delete(RouteInterface $route) : Response
+    public function delete(RouteInterface $route, array $data = []) : Response
     {
-        return $this->buildRequest($route, Http::DELETE)
+        return $this->buildRequest($route, Http::DELETE, [], $data)
                     ->send();
     }
 

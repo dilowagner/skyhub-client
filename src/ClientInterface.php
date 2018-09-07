@@ -31,7 +31,8 @@ interface ClientInterface
 
     /**
      * @param RouteInterface $route
+     * @param array $data
      * @return Response
      */
-    public function delete(RouteInterface $route) : Response;
+    public function delete(RouteInterface $route, array $data = []) : Response;
 }
