@@ -18,4 +18,28 @@ class Shipment extends Api
      * @var string
      */
     const SHIPMENT_ROUTE = 'shipments';
+
+    /**
+     * Agrupar Pedidos em uma PLP
+     * 
+     * @param array $codes
+     * @return Response
+     * 
+     * POST /shipments/b2w
+     * 
+     * Exemplo de estrutura de dados que deverá ser enviada
+     *   array (
+     *     "265358194401",
+     *     "265358194401",
+     *     "265358194401"
+     *   )
+     */
+    public function groupPLP(array $codes) : Response
+    {
+        return $this->client->post(
+            new Route([self::SHIPMENT_ROUTE, 'b2w']), [
+              'order_remote_codes' => $codes
+            ]
+        );
+    }
 }
