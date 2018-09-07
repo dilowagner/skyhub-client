@@ -11,17 +11,27 @@ class Product extends Api
     /**
      * @var string
      */
-    const PRODUCT_ROUTE = 'product';
+    const PRODUCT_ROUTE = 'products';
 
     /**
      * Lista os produtos cadastrados na plataforma
+     * 
+     * @param array $filters
      * @return Response
+     * 
+     * Voce pode passar filtros na requisicao - seguindo o exemplo
+     * https://api.skyhub.com.br/products?page=2&per_page=100
+     * 
+     * $filters = [
+     *    'page' => 2,
+     *    'per_page' => 100
+     * ];
      * 
      * GET /products
      */
-    public function list() : Response
+    public function list(array $filters = []) : Response
     {
-        return $this->client->get(new Route([self::PRODUCT_ROUTE]));
+        return $this->client->get(new Route([self::PRODUCT_ROUTE]), $filters);
     }
 
     /**

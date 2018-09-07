@@ -21,14 +21,14 @@ class Order extends Api
      *   Sale_System
      *   Statuses
      * 
-     * @param array $filter
+     * @param array $filters
      * @return Response
      * 
      * GET /orders
      */
-    public function list(array $filter = []) : Response
+    public function list(array $filters = []) : Response
     {
-        return $this->client->get(new Route([self::ORDER_ROUTE]), $filter);
+        return $this->client->get(new Route([self::ORDER_ROUTE]), $filters);
     }
 
     /**
