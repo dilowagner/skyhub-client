@@ -35,10 +35,11 @@ class SkyHubClient implements ClientInterface
 
     /**
      * Client constructor.
-     * @param $accessToken
-     * @param $baseUri
+     * @param string $xUserEmail
+     * @param string $xApiKey
+     * @param string $xAccountManageKey
      */
-    public function __construct($xUserEmail, $xApiKey, $xAccountManageKey)
+    public function __construct(string $xUserEmail, string $xApiKey, string $xAccountManageKey)
     {
         $this->xUserEmail = $xUserEmail; 
         $this->xApiKey = $xApiKey;
