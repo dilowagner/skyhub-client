@@ -85,4 +85,21 @@ class Shipment extends Api
     {
         return $this->client->get(new Route([self::SHIPMENT_ROUTE, 'b2w', 'view']), ['plp_id' => $code]);
     }
+
+    /**
+     * Lista de Pedidos Aptos ao Agrupamento
+     * 
+     * Atualmente é disponibilizado 20 pedidos por página via API, porém o mesmo pode realizar a paginação
+     * Segue abaixo como realizar a paginação de pedidos aptos para agrupamento
+     * https://api.skyhub.com.br/shipments/b2w/to_group?offset=1
+     *
+     * @param array $filters
+     * @return Response
+     * 
+     * GET /shipments/b2w/to_group
+     */
+    public function listOrders(array $filters = []) : Response
+    {
+        return $this->client->get(new Route([self::SHIPMENT_ROUTE, 'b2w', 'to_group']), $filters);
+    }
 }
