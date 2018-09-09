@@ -71,4 +71,18 @@ class Shipment extends Api
     {
         return $this->client->delete(new Route([self::SHIPMENT_ROUTE, 'b2w']), $data);
     }
+
+    /**
+     * Caso queria retornar os dados da etiqueta em formato JSON, deve-se passar o header Accept: application/json
+     * Em caso de dúvida acesse nosso guia : https://skyhub.gelato.io/guides/servico-de-etiqueta-de-frete
+     *
+     * @param string $code
+     * @return Response
+     * 
+     * GET /shipments/b2w/view?plp_id={CODE}
+     */
+    public function view(string $code) : Response
+    {
+        return $this->client->get(new Route([self::SHIPMENT_ROUTE, 'b2w', 'view']), ['plp_id' => $code]);
+    }
 }
