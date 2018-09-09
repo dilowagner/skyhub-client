@@ -20,6 +20,17 @@ class Shipment extends Api
     const SHIPMENT_ROUTE = 'shipments';
 
     /**
+     * Listar PLPs
+     * @return Response
+     * 
+     * GET /shipments/b2w
+     */
+    public function list() : Response
+    {
+        return $this->client->get(new Route([self::SHIPMENT_ROUTE, 'b2w']));
+    }
+
+    /**
      * Agrupar Pedidos em uma PLP
      * 
      * @param array $codes
