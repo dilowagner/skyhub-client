@@ -87,6 +87,19 @@ class SkyHubClient implements ClientInterface
     }
 
     /**
+     * Requisição PATCH
+     * @method PATCH
+     * @param RouteInterface $route
+     * @param array $data
+     * @return Response
+     */
+    public function patch(RouteInterface $route, array $data) : Response
+    {
+        return $this->buildRequest($route, Http::PATCH, [], $data)
+                    ->send();
+    }
+
+    /**
      * Requisição DELETE
      * @method DELETE
      * @param RouteInterface $route
