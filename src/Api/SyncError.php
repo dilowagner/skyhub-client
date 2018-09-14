@@ -33,7 +33,7 @@ class SyncError extends Api
      * 
      * GET /sync_errors/categories
      */
-    public function getCategory(string $code) : Response
+    public function getErrorCategory(string $code) : Response
     {
         return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'categories', $code]));
     }
