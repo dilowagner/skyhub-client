@@ -38,7 +38,7 @@ Para instalar a biblioteca basta adicioná-la via [composer](https://getcomposer
 composer require dw/skyhub-client
 ```
 
-Ou no composer.json
+Ou via composer.json
 
 ```json
 {
