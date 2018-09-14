@@ -61,4 +61,19 @@ class SyncError extends Api
     {
         return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'orders']));
     }
+
+    /**
+     * Receber lista de produtos por determinada categoria, entre eles podendo encontrar erros de conexão na Skyhub e erros de produção retornados pela B2W
+     * 
+     * @param string $code
+     * @return Response
+     * 
+     * GET /sync_errors/products
+     */
+    public function listProductsPerCategory(string $categoryCode) : Response
+    {
+        return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'products']), [
+            'error_category_code' => $categoryCode
+        ]);
+    }
 }
