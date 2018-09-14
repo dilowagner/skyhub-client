@@ -23,4 +23,17 @@ class SyncError extends Api
     {
         return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'categories']));
     }
+
+    /**
+     * Obter uma categoria de erro
+     * 
+     * @param string $code
+     * @return Response
+     * 
+     * GET /sync_errors/categories
+     */
+    public function getCategory(string $code) : Response
+    {
+        return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'categories', $code]));
+    }
 }
