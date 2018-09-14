@@ -49,4 +49,16 @@ class SyncError extends Api
     {
         return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'products']));
     }
+
+    /**
+     * Receber uma lista de erros relacionados a pedidos.
+     * 
+     * @return Response
+     * 
+     * GET /sync_errors/orders
+     */
+    public function listErrorProducts() : Response
+    {
+        return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'orders']));
+    }
 }
