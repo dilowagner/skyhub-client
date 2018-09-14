@@ -15,6 +15,7 @@ class SyncError extends Api
 
     /**
      * Listar as Categorias de Erros que temos na SkyHub
+     * 
      * @return Response
      * 
      * GET /sync_errors/categories
@@ -35,5 +36,17 @@ class SyncError extends Api
     public function getCategory(string $code) : Response
     {
         return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'categories', $code]));
+    }
+
+    /**
+     * Receber uma lista de erros relacionados a produtos.
+     * 
+     * @return Response
+     * 
+     * GET /sync_errors/products
+     */
+    public function listErrorProducts() : Response
+    {
+        return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'products']));
     }
 }
