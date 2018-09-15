@@ -76,4 +76,24 @@ class SyncError extends Api
             'error_category_code' => $categoryCode
         ]);
     }
+
+    /**
+     * Ignorar erros de produtos
+     * 
+     * @return Response
+     * 
+     * PATCH /sync_errors/products
+     * 
+     * Exemplo de estrutura de dados que deverá ser enviada
+     * array(
+     *   "entity_id" => "123123",
+     *   "error_category_code" => "b2w_products_production"
+     * )
+     */
+    public function ignoreProductErrors(array $data) : Response
+    {
+        return $this->client->patch(new Route([self::SYNC_ERROR_ROUTE, 'products'])[
+            'errors' => $data
+        ]);
+    }
 }
