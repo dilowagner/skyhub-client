@@ -34,5 +34,12 @@ interface ClientInterface
      * @param array $data
      * @return Response
      */
+    public function patch(RouteInterface $route, array $data) : Response;
+
+    /**
+     * @param RouteInterface $route
+     * @param array $data
+     * @return Response
+     */
     public function delete(RouteInterface $route, array $data = []) : Response;
 }

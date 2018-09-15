@@ -24,6 +24,10 @@ final class Http
     /**
      * @var string
      */
+    const PATCH = 'PATCH';
+    /**
+     * @var string
+     */
     const DELETE = 'DELETE';
     /**
      * @var string
