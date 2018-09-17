@@ -31,7 +31,7 @@ class Product extends Api
      */
     public function list(array $filters = []) : Response
     {
-        return $this->client->get(new Route([self::PRODUCT_ROUTE]), $filters);
+        return $this->client->get(new Route([static::PRODUCT_ROUTE]), $filters);
     }
 
     /**
@@ -43,7 +43,7 @@ class Product extends Api
      */
     public function view(string $sku) : Response
     {
-        return $this->client->get(new Route([self::PRODUCT_ROUTE, $sku]));
+        return $this->client->get(new Route([static::PRODUCT_ROUTE, $sku]));
     }
 
     /**
@@ -54,7 +54,7 @@ class Product extends Api
      */
     public function listURLs() : Response
     {
-        return $this->client->get(new Route([self::PRODUCT_ROUTE, '/urls']));
+        return $this->client->get(new Route([static::PRODUCT_ROUTE, '/urls']));
     }
 
     /**
@@ -126,7 +126,7 @@ class Product extends Api
     public function create(array $data) : Response
     {
         return $this->client->post(
-            new Route([self::PRODUCT_ROUTE]), [
+            new Route([static::PRODUCT_ROUTE]), [
               'product' => $data
             ]
         );
@@ -143,7 +143,7 @@ class Product extends Api
     public function update(string $sku, array $data) : Response
     {
         return $this->client->put(
-            new Route([self::PRODUCT_ROUTE, $sku]), [
+            new Route([static::PRODUCT_ROUTE, $sku]), [
               'product' => $data
             ]
         );
@@ -165,7 +165,7 @@ class Product extends Api
     public function updateStock(string $sku, int $quantity) : Response
     {
         return $this->client->put(
-            new Route([self::PRODUCT_ROUTE, $sku]), [
+            new Route([static::PRODUCT_ROUTE, $sku]), [
                 'product' => [
                     'qty' => $quantity
                 ]            
@@ -191,7 +191,7 @@ class Product extends Api
     public function variation(string $sku, array $data) : Response
     {
         return $this->client->post(
-            new Route([self::PRODUCT_ROUTE, $sku, 'variations']), [
+            new Route([static::PRODUCT_ROUTE, $sku, 'variations']), [
                 'variation' => $data       
             ]
         );
@@ -241,7 +241,7 @@ class Product extends Api
      */
     private function updateStatus(string $sku, string $status) : Response
     {
-        return $this->client->put(new Route([self::PRODUCT_ROUTE, $sku]), [
+        return $this->client->put(new Route([static::PRODUCT_ROUTE, $sku]), [
             'product' => [
                 'status' => $status
             ]            
@@ -257,6 +257,6 @@ class Product extends Api
      */
     public function remove(string $sku) : Response
     {
-        return $this->client->delete(new Route([self::PRODUCT_ROUTE, $sku]));
+        return $this->client->delete(new Route([static::PRODUCT_ROUTE, $sku]));
     }
 }

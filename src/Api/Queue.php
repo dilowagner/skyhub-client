@@ -21,7 +21,7 @@ class Queue extends Api
      */
     public function list() : Response
     {
-        return $this->client->get(new Route([self::QUEUE_ROUTE, 'orders']));
+        return $this->client->get(new Route([static::QUEUE_ROUTE, 'orders']));
     }
 
     /**
@@ -33,6 +33,6 @@ class Queue extends Api
      */
     public function remove(string $code) : Response
     {
-        return $this->client->delete(new Route([self::QUEUE_ROUTE, 'orders', $code]));
+        return $this->client->delete(new Route([static::QUEUE_ROUTE, 'orders', $code]));
     }
 }

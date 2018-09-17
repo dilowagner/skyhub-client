@@ -21,7 +21,7 @@ class Statuses extends Api
      */
     public function list() : Response
     {
-        return $this->client->get(new Route([self::STATUSES_ROUTE]));
+        return $this->client->get(new Route([static::STATUSES_ROUTE]));
     }
 
     /**
@@ -41,7 +41,7 @@ class Statuses extends Api
     public function create(array $data) : Response
     {
         return $this->client->post(
-            new Route([self::STATUSES_ROUTE]), [
+            new Route([static::STATUSES_ROUTE]), [
               'status' => $data
             ]
         );
@@ -58,7 +58,7 @@ class Statuses extends Api
     public function update(string $code, array $data) : Response
     {
         return $this->client->put(
-            new Route([self::STATUSES_ROUTE, $code]), [
+            new Route([static::STATUSES_ROUTE, $code]), [
               'status' => $data
             ]
         );

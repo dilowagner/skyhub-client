@@ -22,7 +22,7 @@ class SyncError extends Api
      */
     public function listErrorCategories() : Response
     {
-        return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'categories']));
+        return $this->client->get(new Route([static::SYNC_ERROR_ROUTE, 'categories']));
     }
 
     /**
@@ -35,7 +35,7 @@ class SyncError extends Api
      */
     public function getErrorCategory(string $code) : Response
     {
-        return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'categories', $code]));
+        return $this->client->get(new Route([static::SYNC_ERROR_ROUTE, 'categories', $code]));
     }
 
     /**
@@ -47,7 +47,7 @@ class SyncError extends Api
      */
     public function listErrorProducts() : Response
     {
-        return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'products']));
+        return $this->client->get(new Route([static::SYNC_ERROR_ROUTE, 'products']));
     }
 
     /**
@@ -59,7 +59,7 @@ class SyncError extends Api
      */
     public function listErrorProducts() : Response
     {
-        return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'orders']));
+        return $this->client->get(new Route([static::SYNC_ERROR_ROUTE, 'orders']));
     }
 
     /**
@@ -74,7 +74,7 @@ class SyncError extends Api
      */
     public function listProductsPerCategory(string $email, string $categoryCode) : Response
     {
-        return $this->client->get(new Route([self::SYNC_ERROR_ROUTE, 'products']), [
+        return $this->client->get(new Route([static::SYNC_ERROR_ROUTE, 'products']), [
             'X-User-Email'        => $email,
             'error_category_code' => $categoryCode
         ]);
@@ -97,7 +97,7 @@ class SyncError extends Api
      */
     public function ignoreProductErrors(array $data) : Response
     {
-        return $this->client->patch(new Route([self::SYNC_ERROR_ROUTE, 'products'])[
+        return $this->client->patch(new Route([static::SYNC_ERROR_ROUTE, 'products'])[
             'errors' => $data
         ]);
     }
@@ -119,7 +119,7 @@ class SyncError extends Api
      */
     public function ignoreOrderErrors(array $data) : Response
     {
-        return $this->client->patch(new Route([self::SYNC_ERROR_ROUTE, 'orders'])[
+        return $this->client->patch(new Route([static::SYNC_ERROR_ROUTE, 'orders'])[
             'errors' => $data
         ]);
     }

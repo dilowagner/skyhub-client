@@ -21,6 +21,6 @@ class StatusType extends Api
      */
     public function list() : Response
     {
-        return $this->client->get(new Route([self::STATUS_TYPE_ROUTE]));
+        return $this->client->get(new Route([static::STATUS_TYPE_ROUTE]));
     }
 }
