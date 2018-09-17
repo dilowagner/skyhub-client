@@ -21,6 +21,6 @@ class Freight extends Api
      */
     public function list() : Response
     {
-        return $this->client->get(new Route([self::FREIGHT_ROUTE]));
+        return $this->client->get(new Route([static::FREIGHT_ROUTE]));
     }
 }

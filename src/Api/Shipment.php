@@ -27,7 +27,7 @@ class Shipment extends Api
      */
     public function list() : Response
     {
-        return $this->client->get(new Route([self::SHIPMENT_ROUTE, 'b2w']));
+        return $this->client->get(new Route([static::SHIPMENT_ROUTE, 'b2w']));
     }
 
     /**
@@ -48,7 +48,7 @@ class Shipment extends Api
     public function agroupPLP(array $codes) : Response
     {
         return $this->client->post(
-            new Route([self::SHIPMENT_ROUTE, 'b2w']), [
+            new Route([static::SHIPMENT_ROUTE, 'b2w']), [
               'order_remote_codes' => $codes
             ]
         );
@@ -69,7 +69,7 @@ class Shipment extends Api
      */
     public function ungroupPLP(array $data) : Response
     {
-        return $this->client->delete(new Route([self::SHIPMENT_ROUTE, 'b2w']), $data);
+        return $this->client->delete(new Route([static::SHIPMENT_ROUTE, 'b2w']), $data);
     }
 
     /**
@@ -83,7 +83,7 @@ class Shipment extends Api
      */
     public function view(string $code) : Response
     {
-        return $this->client->get(new Route([self::SHIPMENT_ROUTE, 'b2w', 'view']), ['plp_id' => $code]);
+        return $this->client->get(new Route([static::SHIPMENT_ROUTE, 'b2w', 'view']), ['plp_id' => $code]);
     }
 
     /**
@@ -100,6 +100,6 @@ class Shipment extends Api
      */
     public function listOrders(array $filters = []) : Response
     {
-        return $this->client->get(new Route([self::SHIPMENT_ROUTE, 'b2w', 'to_group']), $filters);
+        return $this->client->get(new Route([static::SHIPMENT_ROUTE, 'b2w', 'to_group']), $filters);
     }
 }

@@ -22,7 +22,7 @@ class Variation extends Api
      */
     public function list(string $sku) : Response
     {
-        return $this->client->get(new Route([self::VARIATION_ROUTE, $sku]));
+        return $this->client->get(new Route([static::VARIATION_ROUTE, $sku]));
     }
 
     /**
@@ -36,7 +36,7 @@ class Variation extends Api
     public function update(string $sku, array $data) : Response
     {
         return $this->client->put(
-            new Route([self::VARIATION_ROUTE, $sku]), [
+            new Route([static::VARIATION_ROUTE, $sku]), [
               'variation' => $data
             ]
         );
@@ -51,6 +51,6 @@ class Variation extends Api
      */
     public function remove(string $sku) : Response
     {
-        return $this->client->delete(new Route([self::VARIATION_ROUTE, $sku]));
+        return $this->client->delete(new Route([static::VARIATION_ROUTE, $sku]));
     }
 }

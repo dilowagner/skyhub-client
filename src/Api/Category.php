@@ -21,7 +21,7 @@ class Category extends Api
      */
     public function list() : Response
     {
-        return $this->client->get(new Route([self::CATEGORY_ROUTE]));
+        return $this->client->get(new Route([static::CATEGORY_ROUTE]));
     }
 
     /**
@@ -43,7 +43,7 @@ class Category extends Api
     public function create(array $data) : Response
     {
         return $this->client->post(
-            new Route([self::CATEGORY_ROUTE]), [
+            new Route([static::CATEGORY_ROUTE]), [
             'category' => [
                 $data
             ]
@@ -69,7 +69,7 @@ class Category extends Api
     public function update(string $code, array $data) : Response
     {
         return $this->client->put(
-            new Route([self::CATEGORY_ROUTE, $code]), [
+            new Route([static::CATEGORY_ROUTE, $code]), [
             'category' => [
                 $data
             ] 
@@ -83,6 +83,6 @@ class Category extends Api
      */
     public function remove(string $code) : Response
     {
-        return $this->client->delete(new Route([self::CATEGORY_ROUTE, $code]));
+        return $this->client->delete(new Route([static::CATEGORY_ROUTE, $code]));
     }
 }

@@ -28,7 +28,7 @@ class Order extends Api
      */
     public function list(array $filters = []) : Response
     {
-        return $this->client->get(new Route([self::ORDER_ROUTE]), $filters);
+        return $this->client->get(new Route([static::ORDER_ROUTE]), $filters);
     }
 
     /**
@@ -40,7 +40,7 @@ class Order extends Api
      */
     public function view(string $code) : Response
     {
-        return $this->client->get(new Route([self::ORDER_ROUTE, $code]));
+        return $this->client->get(new Route([static::ORDER_ROUTE, $code]));
     }
 
     /**
@@ -164,7 +164,7 @@ class Order extends Api
     public function create(array $data) : Response
     {
         return $this->client->post(
-            new Route([self::ORDER_ROUTE]), [
+            new Route([static::ORDER_ROUTE]), [
               'order' => $data
             ]
         );
@@ -181,7 +181,7 @@ class Order extends Api
     public function approval(string $code) : Response
     {
         return $this->client->post(
-            new Route([self::ORDER_ROUTE, $code, 'approval']), [
+            new Route([static::ORDER_ROUTE, $code, 'approval']), [
               'status' => 'payment_received'
             ]
         );
@@ -199,7 +199,7 @@ class Order extends Api
     public function invoice(string $code, array $invoceInfo) : Response
     {
         return $this->client->post(
-            new Route([self::ORDER_ROUTE, $code, 'invoice']), [
+            new Route([static::ORDER_ROUTE, $code, 'invoice']), [
               'status'  => 'payment_received',
               'invoice' => $invoceInfo
             ]
@@ -218,7 +218,7 @@ class Order extends Api
     public function cancel(string $code) : Response
     {
         return $this->client->post(
-            new Route([self::ORDER_ROUTE, $code, 'cancel']), [
+            new Route([static::ORDER_ROUTE, $code, 'cancel']), [
               'status'  => 'order_canceled'
             ]
         );
@@ -241,7 +241,7 @@ class Order extends Api
     public function delivery(string $code, array $info = []) : Response
     {
         return $this->client->post(
-            new Route([self::ORDER_ROUTE, $code, 'delivery']), 
+            new Route([static::ORDER_ROUTE, $code, 'delivery']), 
             array_merge(
                 ['status' => 'complete'],
                 $info
@@ -283,7 +283,7 @@ class Order extends Api
     public function shipments(string $code, array $info = []) : Response
     {
         return $this->client->post(
-            new Route([self::ORDER_ROUTE, $code, 'shipments']), 
+            new Route([static::ORDER_ROUTE, $code, 'shipments']), 
             array_merge(
                 ['status' => 'order_shipped'],
                 $info
@@ -306,7 +306,7 @@ class Order extends Api
      */
     public function shipmentLabels(string $code) : Response
     {
-        return $this->client->get(new Route([self::ORDER_ROUTE, $code, 'shipment_labels']));
+        return $this->client->get(new Route([static::ORDER_ROUTE, $code, 'shipment_labels']));
     }
 
     /**
@@ -327,7 +327,7 @@ class Order extends Api
     public function shipmentException(string $code, array $data) : Response
     {
         return $this->client->post(
-            new Route([self::ORDER_ROUTE, $code, 'shipment_exception']), [
+            new Route([static::ORDER_ROUTE, $code, 'shipment_exception']), [
                 'shipment_exception' => $data
             ]
         );

@@ -32,7 +32,7 @@ class Question extends Api
      */
     public function list(array $filter = []) : Response
     {
-        return $this->client->get(new Route([self::QUESTION_ROUTE]), $filter);
+        return $this->client->get(new Route([static::QUESTION_ROUTE]), $filter);
     }
 
     /**
@@ -44,7 +44,7 @@ class Question extends Api
      */
     public function view(string $id) : Response
     {
-        return $this->client->get(new Route([self::QUESTION_ROUTE, $id]));
+        return $this->client->get(new Route([static::QUESTION_ROUTE, $id]));
     }
 
     /**
@@ -57,7 +57,7 @@ class Question extends Api
     public function answer(string $id) : Response
     {
         return $this->client->post(
-            new Route([self::QUESTION_ROUTE, $id, 'answer']), []
+            new Route([static::QUESTION_ROUTE, $id, 'answer']), []
         );
     }
 
@@ -70,6 +70,6 @@ class Question extends Api
      */
     public function remove(string $id) : Response
     {
-        return $this->client->delete(new Route([self::QUESTION_ROUTE, $id]));
+        return $this->client->delete(new Route([static::QUESTION_ROUTE, $id]));
     }
 }

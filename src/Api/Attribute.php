@@ -34,7 +34,7 @@ class Attribute extends Api
     public function create(array $data) : Response
     {
         return $this->client->post(
-            new Route([self::ATTRIBUTE_ROUTE]), [
+            new Route([static::ATTRIBUTE_ROUTE]), [
               'attribute' => $data
             ]
         );
@@ -51,7 +51,7 @@ class Attribute extends Api
     public function update(string $name, array $data) : Response
     {
         return $this->client->put(
-            new Route([self::ATTRIBUTE_ROUTE, $name]), [
+            new Route([static::ATTRIBUTE_ROUTE, $name]), [
               'attribute' => $data
             ]
         );

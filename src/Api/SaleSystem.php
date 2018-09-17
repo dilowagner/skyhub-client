@@ -21,6 +21,6 @@ class SaleSystem extends Api
      */
     public function list() : Response
     {
-        return $this->client->get(new Route([self::SALE_SYSTEM_ROUTE]));
+        return $this->client->get(new Route([static::SALE_SYSTEM_ROUTE]));
     }
 }
