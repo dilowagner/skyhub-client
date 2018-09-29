@@ -1,8 +1,10 @@
 # skyhub-client
 Client para consumo da API SkyHub
 
-[![Build Status](https://travis-ci.org/dilowagner/skyhub-client.svg?branch=master)](https://travis-ci.org/dilowagner/skyhub-client.svg?branch=master)
-[![Packagist](https://img.shields.io/packagist/v/dw/skyhub-client.svg)](https://github.com/dilowagner/skyhub-client)
+[![Build Status](https://travis-ci.org/dilowagner/skyhub-client.svg?branch=master&style=flat-square)](https://travis-ci.org/dilowagner/skyhub-client.svg?branch=master)
+[![Packagist](https://img.shields.io/packagist/v/dw/skyhub-client.svg?style=flat-square)](https://github.com/dilowagner/skyhub-client)
+[![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/dilowagner/skyhub-client/blob/master/LICENSE)
+
 
 > ### Requisitos
 
